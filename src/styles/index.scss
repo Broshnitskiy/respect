@@ -1,6 +1,5 @@
 @use "./fonts";
 @use "./reset";
-@import "node_modules/modern-normalize/modern-normalize.css";
 
 html {
   scroll-behavior: smooth;
@@ -9,4 +8,5 @@ html {
 body {
   font-family: "SuisseIntl";
   min-height: 100vh;
+  font-weight: 400;
 }
