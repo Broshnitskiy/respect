@@ -1,9 +1,9 @@
-import { LogoGroup } from "./logo-group";
+import { HeroSection } from "./sections/hero";
 
 function App() {
   return (
     <>
-      <LogoGroup />
+      <HeroSection />
     </>
   );
 }

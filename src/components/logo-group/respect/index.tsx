@@ -15,6 +15,7 @@ export const Respect = () => {
           duration: 0.5,
           stagger: 0.2,
           ease: "power2.inOut",
+          delay: 0.5,
         }
       );
     },
