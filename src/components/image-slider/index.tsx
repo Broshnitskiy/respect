@@ -24,7 +24,7 @@ export const ImageSlider = () => {
     gsap.set(imageRefs.current[0], { autoAlpha: 1 });
 
     // Створюємо таймлайн для анімації
-    const tl = gsap.timeline({ repeat: -1, delay: 3 });
+    const tl = gsap.timeline({ repeat: -1, delay: 1.4 });
 
     // Анімація: показуємо кожне зображення (крім першого) поступово
     tl.to(imageRefs.current.slice(1), {

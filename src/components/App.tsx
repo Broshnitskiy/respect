@@ -1,8 +1,11 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { HeroSection } from "./sections/hero";
 import { Navigation } from "./sections/navigation";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { BusinessGrowth } from "./sections/business-growth";
+
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,25 +18,27 @@ function App() {
     setShowSection(true);
   };
 
-  useEffect(() => {
-    if (heroRef.current && navigationRef.current) {
-      ScrollTrigger.create({
-        trigger: heroRef.current,
-        start: "top top",
-        end: "bottom top",
-        pin: true,
-        pinSpacing: false,
-      });
-
-      ScrollTrigger.create({
-        trigger: navigationRef.current,
-        start: "top top",
-        end: "bottom top",
-        pin: false,
-        scrub: true,
-      });
-    }
-  }, [showSection]);
+  useGSAP(
+    () => {
+      if (heroRef.current && navigationRef.current) {
+        ScrollTrigger.create({
+          trigger: heroRef.current,
+          start: "top top",
+          end: "bottom top",
+          pin: true,
+          pinSpacing: false,
+        });
+        ScrollTrigger.create({
+          trigger: navigationRef.current,
+          start: "top top",
+          end: "bottom top",
+          pin: false,
+          scrub: true,
+        });
+      }
+    },
+    { dependencies: [showSection] }
+  );
 
   return (
     <>
@@ -43,6 +48,7 @@ function App() {
       {showSection && (
         <div ref={navigationRef}>
           <Navigation />
+          <BusinessGrowth />
         </div>
       )}
     </>
