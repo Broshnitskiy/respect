@@ -75,8 +75,8 @@ export const HeroSection: FC<IHeroSectionProps> = ({
   );
 
   return (
-    <div className={styles.wrapper}>
-      <h1 className={styles.title}>Digital Marketing Agency</h1>
+    <section className={styles.wrapper}>
+      <p className={styles.title}>Digital Marketing Agency</p>
       {!showLogo && (
         <div className={styles.numbers}>
           <LoadingNumbers ref={loaderRef} items={NUMBERS} />
@@ -85,6 +85,6 @@ export const HeroSection: FC<IHeroSectionProps> = ({
       {showLogo ? <LogoGroup handleShow={handleShow} /> : null}
       {showSquare && <BlackSquare ref={squareRef} />}
       {showSlider && <ImageSlider />}
-    </div>
+    </section>
   );
 };
