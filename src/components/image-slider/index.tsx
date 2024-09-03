@@ -18,7 +18,7 @@ export const ImageSlider = () => {
     const fadeDuration = 0.01;
     const stayDuration = 1;
 
-    gsap.fromTo(containerSlideRef.current, { y: 140 }, { y: 0, duration: 1.2 });
+    gsap.fromTo(containerSlideRef.current, { y: 140 }, { y: 0, duration: 0 });
 
     // Встановлюємо видимість першого зображення
     gsap.set(imageRefs.current[0], { autoAlpha: 1 });

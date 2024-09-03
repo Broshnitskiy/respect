@@ -2,6 +2,7 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import styles from "./BusinessGrowth.module.scss";
 import { useRef } from "react";
+import { BarChart } from "../../bar-chart";
 
 export const BusinessGrowth = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -58,6 +59,8 @@ export const BusinessGrowth = () => {
         We combine disruptive marketing techniques with proven tech solutions to
         provide maximum business value.{" "}
       </p>
+
+      <BarChart />
     </section>
   );
 };
