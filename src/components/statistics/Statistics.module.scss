@@ -1,0 +1,32 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.listItem {
+  padding: 16px 40px;
+  background-color: #101820;
+  display: flex;
+
+  .contentWrapper {
+    display: flex;
+    gap: 20px;
+  }
+
+  .text {
+    color: #e63e3a;
+    text-align: right;
+    font-size: 22px;
+    line-height: 26px;
+    max-width: 200px;
+    padding-top: 6px;
+  }
+
+  .score {
+    font-size: 66px;
+    line-height: 1;
+    color: #e63e3a;
+    font-weight: 500;
+  }
+}

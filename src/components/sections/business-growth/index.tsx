@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import styles from "./BusinessGrowth.module.scss";
 import { useRef } from "react";
 import { BarChart } from "../../bar-chart";
+import { Statistics } from "../../statistics";
 
 export const BusinessGrowth = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -48,19 +49,23 @@ export const BusinessGrowth = () => {
 
   return (
     <section className={styles.section}>
-      <h2 className={styles.title} ref={titleRef}>
-        {"Consitent leads flow to streamline Your business growth."
-          .split("")
-          .map((el, i) => {
-            return <span key={i}>{el}</span>;
-          })}
-      </h2>
-      <p className={styles.parag} ref={paragRef}>
-        We combine disruptive marketing techniques with proven tech solutions to
-        provide maximum business value.{" "}
-      </p>
+      <div className={styles.chartWrapper}>
+        <h2 className={styles.title} ref={titleRef}>
+          {"Consitent leads flow to streamline Your business growth."
+            .split("")
+            .map((el, i) => {
+              return <span key={i}>{el}</span>;
+            })}
+        </h2>
+        <p className={styles.parag} ref={paragRef}>
+          We combine disruptive marketing techniques with proven tech solutions
+          to provide maximum business value.{" "}
+        </p>
 
-      <BarChart />
+        <BarChart />
+      </div>
+
+      <Statistics />
     </section>
   );
 };
