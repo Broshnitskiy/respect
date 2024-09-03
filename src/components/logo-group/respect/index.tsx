@@ -2,7 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
 
-export const Respect = () => {
+export const Respect = ({ handleShow }: { handleShow: () => void }) => {
   const containerRef = useRef<SVGSVGElement | null>(null);
 
   useGSAP(
@@ -16,6 +16,9 @@ export const Respect = () => {
           stagger: 0.2,
           ease: "power2.inOut",
           delay: 0.5,
+          onComplete: () => {
+            handleShow();
+          },
         }
       );
     },

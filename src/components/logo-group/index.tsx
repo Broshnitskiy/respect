@@ -4,11 +4,11 @@ import styles from "./LogoGroup.module.scss";
 import { Respect } from "./respect";
 import { Studio } from "./studio";
 
-export const LogoGroup = () => {
+export const LogoGroup = ({ handleShow }: { handleShow: () => void }) => {
   return (
     <div className={styles.container}>
       <div>
-        <Respect />
+        <Respect handleShow={handleShow} />
       </div>
       <div className={styles.containerDot}>
         <Dot />

@@ -1,10 +1,12 @@
-import { useRef, useState } from "react";
+import { FC, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import { useGSAP } from "@gsap/react";
 import { LoadingNumbers } from "../../loading";
 import { BlackSquare } from "../../black-square";
 import { LogoGroup } from "../../logo-group";
+import { ImageSlider } from "../../image-slider";
+import styles from "./Hero.module.scss";
 
 gsap.registerPlugin(TextPlugin);
 
@@ -22,7 +24,15 @@ const NUMBERS = [
   "100",
 ];
 
-export const HeroSection = () => {
+interface IHeroSectionProps {
+  showSlider: boolean;
+  handleShow: () => void;
+}
+
+export const HeroSection: FC<IHeroSectionProps> = ({
+  showSlider,
+  handleShow,
+}) => {
   const loaderRef = useRef(null);
   const squareRef = useRef<HTMLDivElement>(null);
   const tl = useRef<gsap.core.Timeline | null>(null);
@@ -48,6 +58,7 @@ export const HeroSection = () => {
         ease: "power1.out",
         onComplete: () => {
           setShowLogo(true);
+
           gsap.to(squareRef.current, {
             duration: 1,
             delay: 2,
@@ -64,10 +75,16 @@ export const HeroSection = () => {
   );
 
   return (
-    <div>
-      {!showLogo && <LoadingNumbers ref={loaderRef} items={NUMBERS} />}
-      {showLogo ? <LogoGroup /> : null}
+    <div className={styles.wrapper}>
+      <h1 className={styles.title}>Digital Marketing Agency</h1>
+      {!showLogo && (
+        <div className={styles.numbers}>
+          <LoadingNumbers ref={loaderRef} items={NUMBERS} />
+        </div>
+      )}
+      {showLogo ? <LogoGroup handleShow={handleShow} /> : null}
       {showSquare && <BlackSquare ref={squareRef} />}
+      {showSlider && <ImageSlider />}
     </div>
   );
 };
